@@ -1,0 +1,1061 @@
+$mainColor: #fb377f;
+
+body{
+    padding-top: 65px;
+}
+
+#mmenu{
+    &.mm-menu{
+        top: 65px;
+        
+        .mm-panel{
+            padding: 0;
+            background: #FFF;
+        }
+        
+        .mm-navbar{
+            display: none;
+        }
+        
+        .mm-searchfield{
+            position: static;
+            height: auto;
+            
+            .mm-searchfield__input{
+                padding: 0;
+
+                input{
+                    padding: 10px;
+                    padding-left: 20px;
+
+                    background: #FFF;
+                    border-bottom: 1px solid #e6e6e6;
+                    
+                    font-size: 14px;
+                    font-weight: 200;
+                    font-family: "Oswald";
+
+                    height: 58px;
+                    max-height: none;
+                }
+            }
+        }
+        
+        .mm-listview{
+            margin: 0;
+            
+            .mm-listitem{
+                a:not(.mm-btn_next){
+                    padding: 0 20px;
+                    
+                    line-height: 50px;
+                    font-size: 14px;
+                    font-weight: 300;
+                    font-family: "Oswald";
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+#topbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    
+    width: 100%;
+    height: 65px;
+    padding: 0 15px;
+    
+    background: #FFF;
+    
+    .open_menu{
+        display: none;
+    }
+    
+    .logo{
+        display: inline-block;
+        vertical-align: middle;
+        
+        width: calc(30% - 25px);
+        margin-right: 25px;
+        
+        line-height: 65px;
+        
+        a{
+            display: block;
+            
+            img{
+                display: inline-block;
+                vertical-align: middle;
+
+                max-width: 100%;
+            }
+        }
+        
+        .logo_mobile{
+            display: none;
+        }
+    }
+    
+    .menu{
+        display: inline-block;
+        vertical-align: middle;
+        
+        width: 55%;
+        
+        .menu_item{
+            display: inline-block;
+            vertical-align: middle;
+            
+            margin-right: 15px;
+            
+            position: relative;
+            
+            .menu_main_link{
+                display: block;
+                
+                color: #000;
+                line-height: 65px;
+                text-transform: uppercase;
+                text-decoration: none;
+                font-family: "Oswald", sans-serif;
+                font-weight: 300;
+                font-size: 18px;
+                
+                transition: .2s;
+                
+                &:hover{
+                    color: $mainColor;
+                }
+            }
+            
+            .dropdown{
+                position: absolute;
+                left: 0;
+                top: 100%;
+                
+                min-width: 190px;
+                padding: 10px;
+                
+                opacity: 0;
+                visibility: hidden;
+                
+                transition: opacity .35s;
+                
+                background: rgba(#FFF, .9);
+                
+                .dropdown_item{
+                    .dropdown_link{
+                        display: block;
+                        
+                        color: #0c0c0c;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        font-family: "Oswald", sans-serif;
+                        font-weight: 100;
+                        font-size: 16px;
+                        line-height: normal;
+
+                        transition: .2s;
+                        
+                        &:hover{
+                            color: $mainColor;
+                        }
+                    }
+                    
+                    &:not(:last-child){
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+            
+            &:hover{
+                .dropdown{
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+    
+    .icons_menu{
+        position: absolute;
+        right: 0;
+        top: 0;
+        
+        height: 100%;
+        
+        .icon_item{
+            display: inline-block;
+            vertical-align: middle;
+            
+            .icon_link{
+                display: block;
+                
+                width: 45px;
+                line-height: 65px;
+                
+                text-align: center;
+                
+                .icon{
+                    display: inline-block;
+                    vertical-align: middle;
+            
+                    position: relative;
+                    
+                    font-size: 18px;
+                    color: #000;
+                    
+                    transition: .2s;
+                    
+                    &:before{
+                        font-family: "Buyshop";
+                    }
+            
+                    .bag_quantity{
+                        position: absolute;
+                        right: -14px;
+                        top: -14px;
+
+                        width: 18px;
+                        height: 18px;
+
+                        color: #FFF;
+                        text-align: center;
+                        line-height: 18px;
+                        font-size: 11px;
+                        font-weight: 600;
+                        font-family: "Open Sans", sans-serif;
+
+                        background: $mainColor;
+                        border-radius: 100%;
+                    }
+                }
+                
+                .bag_icon:before{
+                    content: "\e972";
+                }
+                
+                .search_icon:before{
+                    content: "\e969";
+                }
+                
+                .person_icon:before{
+                    content: "\e67b";
+                }
+                
+                &:hover{
+                    .icon{
+                        color: $mainColor;
+                    }
+                }
+            }
+            
+            .cart_body{
+                position: absolute;
+                right: 0;
+                top: 100%;
+                
+                width: 320px;
+                
+                background: #FFF;
+                box-shadow: 0 1px 3px rgba(#000, .12),
+                            0 1px 2px rgba(#000, .24);
+                
+                opacity: 0;
+                visibility: hidden;
+                transition: .35s;
+                
+                .cart_title{
+                    padding: 15px 0;
+                    border-bottom: 1px solid #CCC;
+                    
+                    text-align: center;
+                    font-size: 15px;
+                    font-family: "Oswald", sans-serif;
+                    color: #000;
+                }
+                
+                .products_list{
+                    padding: 10px;
+                    
+                    .product_item{
+                        border-bottom: 1px solid #CCC;
+                        margin-bottom: 5px;
+                        padding-bottom: 5px;
+                        
+                        .product_picture{
+                            display: inline-block;
+                            vertical-align: middle;
+                            
+                            width: 60px;
+                            margin-right: 10px;
+                            
+                            text-align: center;
+                            
+                            img{
+                                display: inline-block;
+                                vertical-align: middle;
+                                
+                                max-width: 100%;
+                            }
+                        }
+                        
+                        .product_about{
+                            display: inline-block;
+                            vertical-align: middle;
+                            
+                            width: 178px;
+                            
+                            .product_name{
+                                color: #000;
+                                font-size: 15px;
+                                font-weight: 300;
+                                font-family: "Oswald", sans-serif;
+                                text-decoration: none;
+                                line-height: normal;
+                                
+                                transition: .3s;
+                                
+                                &:hover{
+                                    color: $mainColor;
+                                }
+                            }
+                            
+                            .product_variants{
+                                color: #000;
+                                font-size: 12px;
+                                font-weight: 300;
+                                font-family: "Oswald", sans-serif;
+                                text-decoration: none;
+                            }
+                            
+                            .product_numeric{
+                                margin-top: 10px;
+                                
+                                .product_quantity{
+                                    display: inline-block;
+                                    vertical-align: middle;
+                                    
+                                    margin-right: 10px;
+                                    
+                                    .product_remove,
+                                    .product_add{
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                        
+                                        background: #FFF;
+                                        border: 1px solid #CCC;
+                                        
+                                        padding: 0;
+                                        margin: 0;
+                                        
+                                        width: 25px;
+                                        height: 25px;
+                                        
+                                        color: #000;
+                                        font-size: 20px;
+                                        font-weight: 300;
+                                        font-family: "Oswald", sans-serif;
+                                        line-height: 23px;
+                                        
+                                        transition: .3s;
+                                        
+                                        &:hover{
+                                            border-color: $mainColor;
+                                            color: $mainColor;
+                                        }
+                                    }
+                                    
+                                    .product_total{
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                        
+                                        border: 0;
+                                        background: #FFF;
+                                        
+                                        width: 30px;
+                                        height: 25px;
+                                        
+                                        padding: 0;
+                                        margin: 0;
+                                        
+                                        color: #000;
+                                        font-size: 13px;
+                                        font-weight: 300;
+                                        font-family: "Oswald", sans-serif;
+                                        line-height: normal;
+                                        text-align: center;
+                                    }
+                                }
+                                
+                                .product_price{
+                                    display: inline-block;
+                                    vertical-align: middle;
+                                    
+                                    color: #000;
+                                    font-size: 13px;
+                                    font-weight: 300;
+                                    font-family: "Oswald", sans-serif;
+                                    line-height: normal;
+                                }
+                            }
+                        }
+                        
+                        .product_actions{
+                            display: inline-block;
+                            vertical-align: middle;
+                            
+                            width: 52px;
+                            
+                            .product_delete{
+                                background: #FFF;
+                                border: 1px solid #000;
+                                
+                                padding: 3px 4px;
+                                width: auto;
+                                height: auto;
+                                
+                                color: #000;
+                                font-size: 12px;
+                                font-weight: 400;
+                                font-family: "Oswald", sans-serif;
+                                line-height: normal;
+                                text-transform: none;
+                                
+                                transition: .3s;
+                                
+                                &:hover{
+                                    border-color: $mainColor;
+                                    color: $mainColor;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                .cart_values{
+                    padding-top: 10px;
+                    
+                    text-align: center;
+                    
+                    .cart_subtotal{
+                        color: #000;
+                        font-size: 14px;
+                        font-weight: 300;
+                        font-family: "Oswald", sans-serif;
+                        line-height: 20px;
+                    }
+                    
+                    .cart_total{
+                        margin-top: 2px;
+                        
+                        color: $mainColor;
+                        font-size: 17px;
+                        font-weight: 300;
+                        font-family: "Oswald", sans-serif;
+                        line-height: 24px;
+                    }
+                }
+                
+                .cart_actions{
+                    padding: 10px;
+                    
+                    .cart_edit{
+                        display: inline-block;
+                        vertical-align: middle;
+                        
+                        width: calc(50% - 2px);
+                        height: 40px;
+                        margin: 0;
+                        margin-right: 2px;
+                        padding: 0 5px;
+                        
+                        background: #FFF;
+                        border: 1px solid #000;
+                        
+                        color: #000;
+                        font-size: 14px;
+                        font-weight: 400;
+                        font-family: "Oswald", sans-serif;
+                        text-transform: none;
+                        
+                        transition: .3s;
+                        
+                        &:hover{
+                            color: $mainColor;
+                            border-color: $mainColor;
+                        }
+                    }
+                    
+                    .cart_finish{
+                        display: inline-block;
+                        vertical-align: middle;
+                        
+                        width: calc(50% - 2px);
+                        height: 40px;
+                        margin: 0;
+                        margin-left: 2px;
+                        padding: 0 5px;
+                        
+                        background: $mainColor;
+                        border: 1px solid $mainColor;
+                        
+                        color: #FFF;
+                        font-size: 14px;
+                        font-weight: 400;
+                        font-family: "Oswald", sans-serif;
+                        text-transform: none;
+                        
+                        transition: .3s;
+                        
+                        &:hover{
+                            color: $mainColor;
+                            background: #FFF;
+                        }
+                    }
+                }
+            }
+            
+            &:hover{
+                .cart_body{
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+
+
+#fullBanner{
+    padding-bottom: 50px;
+    background: #FFF;
+    
+    position: relative;
+    
+    .fullBanner_slider{
+        &.fullBanner_responsive{
+            display: none;
+        }
+        
+        .banner{
+            img{
+                max-width: 100%;
+            }
+        }
+    }
+    
+    .fullBanner_arrow{
+        position: absolute;
+        top: calc(50% - 25px);
+        z-index: 1;
+        
+        width: 50px;
+        height: 50px;
+        
+        cursor: pointer;
+        
+        transition: .3s;
+        
+        img{
+            display: block;
+            
+            margin: 10px;
+            width: 30px;
+            
+            opacity: .3;
+            
+            transition: .3s;
+        }
+        
+        &.prev_arrow{
+            left: 0;
+            
+            &:hover{
+                background: linear-gradient(to left, transparent 0, rgba(#000, .2) 100%);
+            }
+        }
+        
+        &.next_arrow{
+            right: 0;
+            
+            &:hover{
+                background: linear-gradient(to right, transparent 0, rgba(#000, .2) 100%);
+            }
+        }
+        
+        &:hover img{
+            opacity: 1;
+        }
+    }
+}
+
+
+#destaques{
+    background: #FFF;
+    
+    padding: 50px 0;
+    
+    .destaques_title{
+        margin-bottom: 10px;
+        
+        text-align: center;
+        font-size: 29px;
+        font-family: "Oswald", sans-serif;
+        line-height: normal;
+    }
+    
+    .destaques_subtitle{
+        margin-bottom: 10px;
+        
+        font-size: 16px;
+        font-weight: 300;
+        text-align: center;
+        line-height: normal;
+    }
+    
+    .destaques_list{
+        .destaque_item{
+            display: inline-block;
+            vertical-align: top;
+            
+            width: calc((100% - 20px)/3);
+            margin: 0 0 10px;
+            border: 1px solid transparent;
+            
+            overflow: hidden;
+            
+            transition: .3s;
+            
+            &:nth-child(3n+2){
+                margin: 0 10px 10px;
+            }
+            
+            a{
+                display: block;
+                
+                img{
+                    max-width: 100%;
+                    
+                    transition: 1s;
+                }
+                
+            }
+            
+            &:hover{
+                border-color: $mainColor;
+                
+                a{
+                    img{
+                        transform: scale3d(1.1, 1.1, 1);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.products_section{
+    background: #FFF;
+    
+    padding: 50px 0;
+    
+    .products_title{
+        margin-bottom: 10px;
+        
+        text-align: center;
+        font-size: 29px;
+        font-family: "Oswald", sans-serif;
+        line-height: normal;
+    }
+    
+    .products_subtitle{
+        margin-bottom: 10px;
+        
+        font-size: 16px;
+        font-weight: 300;
+        text-align: center;
+        line-height: normal;
+    }
+    
+    .products_list{
+        .product_item{
+            display: inline-block;
+            vertical-align: top;
+            
+            width: 25%;
+            padding: 10px;
+            
+            .product_holder{
+                border: 1px solid transparent;
+
+                transition: .3s;
+
+                .product_picture{
+                    position: relative;
+                    
+                    .picture_front{
+                        width: 100%;
+                        
+                        img{
+                            display: inline-block;
+                            vertical-align: middle;
+
+                            max-width: 100%;
+                        }
+                    }
+                    
+                    .picture_back{
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        z-index: 1;
+                        
+                        width: 100%;
+                        
+                        text-align: center;
+                        
+                        transition: .3s;
+                        
+                        img{
+                            display: inline-block;
+                            vertical-align: middle;
+
+                            max-width: 100%;
+                        }
+                    }
+                    
+                    .picture_back{
+                        opacity: 0;
+                    }
+                    
+                    .color_overlay{
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        z-index: 2;
+                        
+                        width: 100%;
+                        height: 100%;
+                        
+                        background: rgba(#000, .4);
+                        opacity: 0;
+                        
+                        align-items: center;
+                        justify-content: center;
+                        
+                        text-decoration: none;
+                        
+                        transition: .3s;
+                        
+                        span{
+                            display: flex;
+                            
+                            width: 100%;
+                            height: 100%;
+                        
+                            align-items: center;
+                            justify-content: center;
+                        
+                            color: #FFF;
+                            font-size: 20px;
+                            font-weight: 300;
+                            font-family: "Oswald", sans-serif;
+                            text-align: center;
+                            text-transform: uppercase;
+                        }
+                    }
+                    
+                    .pinterest_overlay{
+                        position: absolute;
+                        left: 5px;
+                        top: 5px;
+                        z-index: 3;
+                        
+                        width: 20px;
+                        height: 20px;
+                        
+                        opacity: 0;
+                        
+                        transition: .3s;
+                        
+                        img{
+                            max-width: 100%;
+                        }
+                    }
+                    
+                    &:hover{
+                        .picture_back,
+                        .color_overlay,
+                        .pinterest_overlay{
+                            opacity: 1;
+                        }
+                    }
+                }
+                
+                .product_info{
+                    padding: 10px 0;
+                    
+                    text-align: center;
+                    
+                    .product_brand{
+                        padding: 5px 0;
+                        
+                        a{
+                            color: #000;
+                            font-size: 14px;
+                            font-weight: 900;
+                            text-decoration: none;
+
+                            transition: .3s;
+
+                            &:hover{
+                                color: $mainColor;
+                            }
+                        }
+                    }
+                    
+                    .product_name{
+                        padding: 5px 0;
+                        
+                        a{
+                            color: #000;
+                            font-size: 16px;
+                            font-weight: 100;
+                            font-family: "Oswald", sans-serif;
+                            text-decoration: none;
+                            text-transform: uppercase;
+
+                            transition: .3s;
+
+                            &:hover{
+                                color: $mainColor;
+                            }
+                        }
+                    }
+                    
+                    .product_review{
+                        padding-top: 5px;
+                        
+                        .fa{
+                            display: inline-block;
+                            vertical-align: middle;
+                            
+                            margin: 0 2px;
+                            
+                            color: $mainColor;
+                            font-size: 14px;
+                        }
+                    }
+                    
+                    .product_price{
+                        padding-top: 3px;
+                        
+                        span{
+                            display: inline-block;
+                            padding: 0 5px;
+                            
+                            font-size: 13px;
+                            
+                            &.value{
+                                text-decoration: line-through;
+                            }
+                            &.discount{
+                                font-size: 14px;
+                                color: $mainColor;
+                            }
+                        }
+                    }
+                    
+                    .product_conditions{
+                        padding-top: 5px;
+                        
+                        font-size: 13px;
+                        line-height: normal;
+                        
+                        opacity: .6;
+                    }
+                }
+
+                &:hover{
+                    border-color: $mainColor;
+                }
+            }
+        }
+    }
+    
+    .bestSellers_arrow{
+        position: absolute;
+        top: calc(50% - 25px);
+        z-index: 1;
+        
+        width: 50px;
+        height: 50px;
+        
+        cursor: pointer;
+        
+        img{
+            display: block;
+            
+            margin: 10px;
+            width: 30px;
+            
+            transition: .3s;
+        }
+        
+        &.prev_arrow{
+            left: 0;
+        }
+        
+        &.next_arrow{
+            right: 0;
+        }
+    }
+}
+
+
+@media (min-width: 992px) and (max-width: 1200px){
+    #topbar{
+        .menu{
+            .menu_item{
+                margin-right: 10px;
+                
+                .menu_main_link{
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 768px) and (max-width: 991px){
+    #topbar{
+        .menu{
+            .menu_item{
+                margin-right: 8px;
+                
+                .menu_main_link{
+                    font-size: 13px;
+                }
+            }
+        }
+        
+        .icons_menu{
+            .icon_item{
+                .icon_link{
+                    width: 35px;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 768px){
+    #mmenu{
+        display: none !important;
+    }
+    
+    .mm-wrapper_opening .mm-menu_offcanvas.mm-menu_opened ~ .mm-slideout{
+        transform: none !important;
+        min-height: 0 !important;
+    }
+}
+@media (max-width: 767px){
+    #topbar{
+        .icons_menu{
+            .icon_item{
+                display: none;
+                
+                .cart_body{
+                    display: none;
+                }
+                
+                &:last-child{
+                    display: block;
+                }
+            }
+        }
+        
+        .logo{
+            width: calc(100% - 90px);
+            margin: 0;
+            
+            .logo_full{
+                display: none;
+            }
+            .logo_mobile{
+                display: block;
+                
+                line-height: 65px;
+                text-align: center;
+                
+                img{
+                    max-height: 50px;
+                    max-width: 165px;
+                }
+            }
+        }
+        
+        .menu{
+            display: none;
+        }
+        
+        .open_menu{
+            display: inline-block;
+            vertical-align: middle;
+            
+            .open_menu_mobile{
+                width: 45px;
+                height: 45px;
+                
+                padding: 0;
+                margin: 0;
+                
+                background: #FFF;
+                
+                text-align: center;
+                
+                .fa{
+                    color: #000;
+                    font-size: 24px;
+                    
+                    transition: .3s;
+                    
+                    &:hover{
+                        color: $mainColor;
+                    }
+                }
+            }
+        }
+    }
+    
+    #fullBanner{
+        .fullBanner_slider{
+            display: none;
+            
+            &.fullBanner_responsive{
+                display: block;
+            }
+        }
+    }
+    
+    #bestSellers{
+        display: none;
+    }
+}
+@media (max-width: 991px){
+    #destaques{
+        .destaques_list{
+            text-align: center;
+            
+            .destaque_item{
+                width: auto;
+                margin: 0 0 10px;
+                padding: 0;
+            }
+        }
+    }
+}
